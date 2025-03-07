@@ -44,7 +44,7 @@ function playerChoice(choice) {
  * @param {function} callback - The function to execute after the shuffle completes.
  */
 function shuffleComputerChoice(callback) {
-    let choices = ["rock.png", "paper.png", "scissors.png"];
+    let choices = ["images/rock.png", "images/paper.png", "images/scissors.png"];
     let index = 0;
     let interval = setInterval(() => {
         document.getElementById("computer-choice").src = choices[index];
