@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+  Name: Shreya Jayas
+  Date: 03/06/2025
+  CSC 372-01
+
+  This is a Rock Paper Scissors game that allows the user to play against the computer.
+  The game follows the standard rules, animates the computer's choice, and keeps track of the score.
+  The game includes a "Play Again" and "Reset" button for replayability.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>ROCK PAPER SCISSORS GAME. GO!</h1>
+    
+    <div class="game-container">
+        <!-- Player Throw Section -->
+        <div class="player-section">
+            <h2>Your Throw</h2>
+            <div class="choices">
+                <img src="rock.png" alt="Rock" id="rock" class="choice">
+                <img src="paper.png" alt="Paper" id="paper" class="choice">
+                <img src="scissors.png" alt="Scissors" id="scissors" class="choice">
+            </div>
+        </div>
+        
+        <!-- Computer Throw Section -->
+        <div class="computer-section">
+            <h2>Computer Throw</h2>
+            <img src="question-mark.png" alt="Computer Choice" id="computer-choice" class="computer-choice">
+        </div>
+        
+        <!-- Outcome Section -->
+        <div class="result-section">
+            <h2>RESULTS: <span id="result">Waiting...</span></h2>
+        </div>
+        
+        <!-- Score and Play Again Section -->
+        <div class="score-section">
+            <p>Wins: <span id="wins">0</span> | Losses: <span id="losses">0</span> | Ties: <span id="ties">0</span></p>
+            <button id="reset">Reset</button>
+            <button id="play-again">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
