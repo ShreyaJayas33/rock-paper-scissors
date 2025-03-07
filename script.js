@@ -20,27 +20,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /**
  * Handles the player's selection and initiates the game logic.
- * Highlights the selected choice and triggers the computer throw. (25 pts)
+ * Highlights the selected choice and triggers the computer throw.
  * @param {string} choice - The player's selected option (rock, paper, scissors).
  */
 function playerChoice(choice) {
     document.querySelectorAll(".choice").forEach(img => img.classList.remove("selected"));
     document.getElementById(choice).classList.add("selected");
-    
+
     let choices = ["rock", "paper", "scissors"];
     let computerIndex = Math.floor(Math.random() * 3);
     let computerChoice = choices[computerIndex];
-    
+
     shuffleComputerChoice(() => {
-        document.getElementById("computer-choice").src = computerChoice + ".png";
+        document.getElementById("computer-choice").src = "images/" + computerChoice + ".png";
         document.getElementById("computer-choice").classList.add("selected-computer");
         determineWinner(choice, computerChoice);
     });
 }
 
 /**
- * Animates the computer's choice by shuffling between options before selecting one. (10 pts)
- * Starts after player throw selection. (25 pts)
+ * Animates the computer's choice by shuffling between options before selecting one.
  * @param {function} callback - The function to execute after the shuffle completes.
  */
 function shuffleComputerChoice(callback) {
@@ -50,7 +49,7 @@ function shuffleComputerChoice(callback) {
         document.getElementById("computer-choice").src = choices[index];
         index = (index + 1) % choices.length;
     }, 500);
-    
+
     setTimeout(() => {
         clearInterval(interval);
         callback();
@@ -58,7 +57,7 @@ function shuffleComputerChoice(callback) {
 }
 
 /**
- * Determines the winner of the game and updates the score. (10 pts)
+ * Determines the winner of the game and updates the score.
  * @param {string} player - The player's choice.
  * @param {string} computer - The computer's choice.
  */
@@ -76,7 +75,7 @@ function determineWinner(player, computer) {
         result = "You Lose!";
         losses++;
     }
-    
+
     document.getElementById("result").textContent = result;
     document.getElementById("wins").textContent = wins;
     document.getElementById("losses").textContent = losses;
@@ -84,7 +83,7 @@ function determineWinner(player, computer) {
 }
 
 /**
- * Resets the game by clearing the score and restoring the initial state. (10 pts)
+ * Resets the game by clearing the score and restoring the initial state.
  */
 function resetGame() {
     wins = 0;
@@ -94,17 +93,17 @@ function resetGame() {
     document.getElementById("wins").textContent = wins;
     document.getElementById("losses").textContent = losses;
     document.getElementById("ties").textContent = ties;
-    document.getElementById("computer-choice").src = "question-mark.png";
+    document.getElementById("computer-choice").src = "images/question-mark.png";
     document.querySelectorAll(".choice").forEach(img => img.classList.remove("selected"));
     document.getElementById("computer-choice").classList.remove("selected-computer");
 }
 
 /**
- * Allows replaying the game without resetting the score. (5 pts - Extra Credit)
+ * Allows replaying the game without resetting the score.
  */
 function playAgain() {
     document.getElementById("result").textContent = "Waiting...";
-    document.getElementById("computer-choice").src = "question-mark.png";
+    document.getElementById("computer-choice").src = "images/question-mark.png";
     document.querySelectorAll(".choice").forEach(img => img.classList.remove("selected"));
     document.getElementById("computer-choice").classList.remove("selected-computer");
 }
